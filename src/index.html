@@ -5,10 +5,55 @@
     <title>Tarjeta de crédito válida</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <header></header>
-    <main></main>
+    <header> <div><img class="logo" src="https://i.imgur.com/6L2YwQU.png" alt="Personal Wallet" width="400" height="182"></div></header>
+    <main>
+<!---Sección login-->
+<section id="login">
+  <div>
+    <input class ="userInput" placeholder="Usuario" id="user" type="text" name="user">
+  </div>
+  <div>
+    <input class ="pwdInput" placeholder ="Clave" id="password" type="text" name="password">
+  </div>
+  <button class="btn" id="accessToWallet">Abrir</button>
+
+</section>
+<!--Sección para home, encuentras boton para ingresar nueva tarjeta y tus tarjetas guardadas-->
+      <section id="home" style="display: none;">
+        <h1 class="heading">Hola!</h1>
+        <hr/>
+        <button class="btn" id="newCardButton">Ingresa nueva tarjeta</button>
+        <h2 class="heading">Tus tarjetas</h2>
+        <ul id="cardsContainer"></ul>
+      </section>
+<!--Sección para newCard, ingresar nueva tarjeta-->
+      <section id="newCard" style="display: none;">
+        <h1 class="heading">Ingresa tu tarjeta</h1>
+        <div>
+          <input placeholder="Alias" id="aliasName" type="text" name="aliasName">
+        </div>
+        <div>
+          <input placeholder ="Nombre tarjeta" id="ccName" type="text" name="ccName">
+        </div>
+        <div>
+          <input  placeholder="Número tarjeta" id="ccNumber" type="number" name="ccNumber">
+        </div>
+        <div>
+          <input  placeholder="Fecha expiración" id="ccExp" type="text" name="ccExp">
+        </div>
+        <div>
+          <input placeholder="CVV" id="ccCVV" type="number" name="ccCVV">
+        </div>
+        <button class="btn" id="saveInformation">Guardar</button>
+      </section>
+<!--Seccion card, puedes consultar el detalle de una tarjeta-->
+      <section id="card"></section>
+    </main>
     <footer></footer>
     <script src="index.js" type="module"></script>
+<!--Seccion detalle de una tarjeta-->
+
   </body>
 </html>

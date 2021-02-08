@@ -1,0 +1,92 @@
+body{
+    margin: 100px;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+.heading {
+    color: #FF5D5B;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 85px;
+    line-height: 44px;
+    text-align:center;
+
+    
+}
+
+.userInput {
+    background: #EFD5A3;
+    border-radius: 10px;
+    border:0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    font-size: 40px;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100px;
+    left: 50px;
+    top: 176px;
+
+}
+
+.pwdInput {
+    background: #CEEFA3;
+    border-radius: 10px;
+    border:0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 100px;
+    font-size: 40px;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100px;
+    left: 50px;
+    top: 176px;
+}
+
+.btn {
+    background-color: #FF5D5B;
+    border-radius: 25px;
+    border:0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 100px;
+    width: 500px;
+    height: 100px;
+    left: 99px;
+    top: 536px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    font-family: sans-serif;
+    line-height: 25px;
+    text-align: center;
+    color:#52504F;
+}
+   
+
+#newCard input {
+    background: #EFD5A3;
+    border-radius: 10px;
+    border:0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    font-size: 40px;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100px;
+    left: 50px;
+    top: 176px;
+}
