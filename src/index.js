@@ -33,15 +33,39 @@ import validator from './validator.js';
     let creditCardNumber = document.getElementById("ccNumber").value;
     if (validator.isValid(creditCardNumber) == true ){ 
         alert("Datos ingresados correctamente");
+         // Crear objeto que contiene como propiedad los input
+        const walletAcces = {
+            alias: document.getElementById("aliasName").value,
+            name: document.getElementById("ccName").value,
+            number: document.getElementById("ccNumber").value,
+            exp: document.getElementById("ccExp").value,
+            cvv: document.getElementById("ccCVV").value,
+        };
+        saveTheinformation(walletAcces); 
         document.getElementById("newCard").style.display="none";
         document.getElementById("home").style.display="initial";
     }else {
         alert ("Por favor ingrese un número de tarjeta válido");
         
     }
+   
     //console mientras tanto...
     console.log(validator.maskify(creditCardNumber));
+    
  }
+
+    //Funcion que guarda los input del local storage
+    const saveTheinformation = (walletAcces) => {
+        let walletArray = [];
+        if (localStorage.getItem("wallet")== null){
+            walletArray.push(walletAcces);
+            localStorage.setItem("wallet", JSON.stringify(walletArray));
+        } else {
+        walletArray = JSON.parse(localStorage.getItem("wallet"));  
+        walletArray.push(walletAcces);
+        localStorage.setItem("wallet", JSON.stringify(walletArray));
+        }
+    };
 
  
  
