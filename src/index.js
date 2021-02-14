@@ -12,13 +12,31 @@ import validator from './validator.js';
     //Listener de boton entrar 
     const accessButtonClick = document.getElementById("accessToWallet");
     accessButtonClick.addEventListener("click",home);
-    
+    //Listener para volver al home dps de ver detalles de la tarjeta
+    const backToHome = document.getElementById("backtoHome");
+    backToHome.addEventListener("click", home);  
+    //Listener botones para cerrar sesion
+    const closeSesion = document.getElementById("closeSesionB");
+    closeSesion.addEventListener("click", backLogin); 
+    //Listener para volver a home desde el formulario de tc
+    const backToHomeTwo = document.getElementById("buttonTwoHome");
+    backToHomeTwo.addEventListener("click",home);
+ }
+
+ //Funcion que va de home a login
+ const backLogin = () =>{
+    document.getElementById("login").style.display = "initial";
+    document.getElementById("home").style.display = "none";
  }
 
  //Función que va desde login a home
  const home = () =>{
      document.getElementById("login").style.display = "none";
      document.getElementById("home").style.display = "initial";
+     document.getElementById("newCard").style.display = "none";
+     document.getElementById("card").style.display = "none"
+    let welcomeHello = document.getElementById("welcomeName");
+    welcomeHello.innerHTML = ("Hola " + document.getElementById("user").value);
 
  }
  //Función que me muestra formulario para numeros de tarjetas
@@ -27,7 +45,8 @@ import validator from './validator.js';
     document.getElementById("newCard").style.display = "initial";
  }
 
-//Función que se devuelve al homepage y procesa la funcion valid card
+//Función que se devuelve al homepage y crea un objeto con los datos y procesa la funcion valid card
+//LLamo a las funciones savetheinformation y showWallet
  const backToHomepage = () =>{
      //Valor de cc
     let creditCardNumber = document.getElementById("ccNumber").value;
@@ -51,6 +70,14 @@ import validator from './validator.js';
     } 
  }
 
+ //Funcion que me muestra los detalles de una tarjeta
+ const cardDetails = () => {
+    document.getElementById("home").style.display = "none";
+    let cardElements = document.getElementById("card");
+    cardElements.style.display = "initial";
+    //cardElements.innerHTML = (localStorage.getItem("wallet"));   
+ }
+
  //Función que guarda el objeto en el local storage
 const saveTheinformation = (walletAcces) => {
     let walletArray = [];
@@ -68,15 +95,18 @@ const saveTheinformation = (walletAcces) => {
 const showWallet = () =>{
     let getWallet = localStorage.getItem("wallet");
     getWallet = JSON.parse(getWallet);
-    console.log(getWallet.length);
     let element = document.getElementById("cardsContainer");
     element.innerHTML = "";
+    if (getWallet == null){
+        return;
+    }
     for (let i = 0; i < getWallet.length; i++){
         let one = document.createElement("li");
         one.classList.add("cardSummary");
-        let two = document.createTextNode(getWallet[i].alias+ " :" + validator.maskify(getWallet[i].number));
+        let two = document.createTextNode(getWallet[i].alias+ ": " + validator.maskify(getWallet[i].number));
         one.appendChild(two);
-        element.appendChild(one);      
+        element.appendChild(one);
+        one.addEventListener("click",cardDetails);
     }
 
     

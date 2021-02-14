@@ -98,8 +98,6 @@ body{
     border:0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    font-size: 40px;
-    font-family: sans-serif;
     width: 100%;
     height: 100px;
     left: 50px;
@@ -108,10 +106,48 @@ body{
 
     font-style: normal;
     font-weight: normal;
-    font-size: 37px;
+    font-size: 33px;
     font-family: sans-serif;
     text-align: center;
     vertical-align: middle;
     line-height: 90px;  
     color:#52504F;
+}
+
+.cardInfo{
+    width: 100%;
+    height: 500px;
+    left: 11px;
+    top: 270px;
+
+    background: #CEEFA3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.closeSes {
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 19px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FF5D5B;
+
+    background-color: transparent;
+    border:none;
+    position: absolute;
+    bottom: 50px;
+
+}
+
+.houseHome {
+    width: 120px;
+    height: 110px;
+    position: absolute;
+    margin-right: 0px;
+    bottom: 50px;
+    right: 50px;
 }

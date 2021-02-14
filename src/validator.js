@@ -5,6 +5,10 @@ const validator = {
      if (creditCardNumber== "" || creditCardNumber==null){
       return false;
     }
+    //Para evitar un string de solo ceros
+    if (parseInt(creditCardNumber) == 0){
+      return false;
+    }
     //Separar el string en un arreglo y que sea un int
     let ccNumberArray = creditCardNumber.split("").map(Number).reverse();
 

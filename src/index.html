@@ -22,11 +22,12 @@
 </section>
 <!--Sección para home, encuentras boton para ingresar nueva tarjeta y tus tarjetas guardadas-->
       <section id="home" style="display: none;">
-        <h1 class="heading">Hola!</h1>
+        <h1 class="heading" id = "welcomeName"></h1>
         <hr/>
         <button class="btn" id="newCardButton">Ingresa nueva tarjeta</button>
         <h2 class="heading">Tus tarjetas</h2>
         <ul id="cardsContainer"> </ul>
+        <button class="closeSes" id="closeSesionB">Cerrar Sesion</button>
       </section>
 <!--Sección para newCard, ingresar nueva tarjeta-->
       <section id="newCard" style="display: none;">
@@ -47,9 +48,15 @@
           <input placeholder="CVV" id="ccCVV" type="number" name="ccCVV">
         </div>
         <button class="btn" id="saveInformation">Guardar</button>
+        <img class="houseHome" id="buttonTwoHome" src="images/homeIcon.png" alt ="Back to Home">
       </section>
 <!--Seccion card, puedes consultar el detalle de una tarjeta-->
-      <section id="card"></section>
+      <section id="card" style="display: none;">
+        <h1 class="heading">Detalles de tu tarjeta</h1>
+        <ul class = "cardInfo"></ul>
+        <button id = "backtoHome" class="btn"> Cerrar</button>
+      </section>
+
     </main>
     <footer></footer>
     <script src="index.js" type="module"></script>
