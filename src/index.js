@@ -74,8 +74,7 @@ import validator from './validator.js';
  const cardDetails = () => {
     document.getElementById("home").style.display = "none";
     let cardElements = document.getElementById("card");
-    cardElements.style.display = "initial";
-    //cardElements.innerHTML = (localStorage.getItem("wallet"));   
+    cardElements.style.display = "initial"; 
  }
 
  //Función que guarda el objeto en el local storage
@@ -95,18 +94,28 @@ const saveTheinformation = (walletAcces) => {
 const showWallet = () =>{
     let getWallet = localStorage.getItem("wallet");
     getWallet = JSON.parse(getWallet);
-    let element = document.getElementById("cardsContainer");
-    element.innerHTML = "";
+    let cardsUl = document.getElementById("cardsContainer");
+    cardsUl.innerHTML = "";
     if (getWallet == null){
         return;
     }
     for (let i = 0; i < getWallet.length; i++){
-        let one = document.createElement("li");
-        one.classList.add("cardSummary");
+        let cardLi = document.createElement("li");
+        cardLi.classList.add("cardSummary"); 
         let two = document.createTextNode(getWallet[i].alias+ ": " + validator.maskify(getWallet[i].number));
-        one.appendChild(two);
-        element.appendChild(one);
-        one.addEventListener("click",cardDetails);
+        cardLi.appendChild(two);
+        cardsUl.appendChild(cardLi); // donde esta el ul le agrego el
+        //Funcion que rellena en la otra seccion los detalles, aprovechando la iteracion
+        const fillCardDetails = () =>{
+            document.getElementById("cardDetailsAlias").innerHTML= getWallet[i].alias;
+            document.getElementById("cardDetailsName").innerHTML= getWallet[i].name;
+            document.getElementById("cardDetailsNumber").innerHTML= getWallet[i].number;
+            document.getElementById("cardDetailsExp").innerHTML= getWallet[i].exp;
+            document.getElementById("cardDetailscvv").innerHTML= getWallet[i].cvv;
+            cardDetails();
+        };
+
+        cardLi.addEventListener("click", fillCardDetails);
     }
 
     

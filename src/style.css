@@ -10,19 +10,19 @@ body{
     margin-bottom: 100px;
 }
 
-
+/* Todas las letras de encabezado*/
 .heading {
     color: #FF5D5B;
-    font-family: sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 85px;
     line-height: 44px;
     text-align:center;
 
     
 }
-
+/* Usuario input*/
 .userInput {
     background: #EFD5A3;
     border-radius: 10px;
@@ -38,6 +38,7 @@ body{
 
 }
 
+/* Contraseña input*/
 .pwdInput {
     background: #CEEFA3;
     border-radius: 10px;
@@ -52,6 +53,7 @@ body{
     top: 176px;
 }
 
+/* Todos los botones*/
 .btn {
     background-color: #FF5D5B;
     border-radius: 25px;
@@ -76,7 +78,7 @@ body{
     color:#52504F;
 }
    
-
+/* Cuadro donde se completa datos de tc*/
 #newCard input {
     background: #EFD5A3;
     border-radius: 10px;
@@ -90,6 +92,8 @@ body{
     left: 50px;
     top: 176px;
 }
+
+/* Cuadros con resumen de tc en el home */
 
 .cardSummary {
 
@@ -114,20 +118,28 @@ body{
     color:#52504F;
 }
 
+
+/* Informacion de detalles de tc */
 .cardInfo{
     width: 100%;
     height: 500px;
     left: 11px;
     top: 270px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
     background: #CEEFA3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+
+    font-family: sans-serif;
+    color: #52504F;
 }
 
+/* Boton cerrar ses */
 .closeSes {
 
-    font-family: Open Sans;
+    font-family: sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
@@ -143,6 +155,7 @@ body{
 
 }
 
+/* Boton de casa */ 
 .houseHome {
     width: 120px;
     height: 110px;
@@ -151,3 +164,22 @@ body{
     bottom: 50px;
     right: 50px;
 }
+
+/* Estilo de los detalles de la tc */ 
+dt {
+    
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-inline-start: 50px;
+    font-size: 36px;
+}
+
+
+dd {
+    margin-bottom: 0.1em;
+    display: block;
+    margin-inline-start: 258px;
+    font-weight: bold;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 36px;
+}
+

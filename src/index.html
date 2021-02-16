@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Tarjeta de crédito válida</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -53,7 +55,24 @@
 <!--Seccion card, puedes consultar el detalle de una tarjeta-->
       <section id="card" style="display: none;">
         <h1 class="heading">Detalles de tu tarjeta</h1>
-        <ul class = "cardInfo"></ul>
+        <dl class = "cardInfo">
+          <dt>Alias:</dt>
+          <dd id="cardDetailsAlias"></dd>
+
+          <dt>Nombre de tarjeta:</dt>
+          <dd id="cardDetailsName"></dd>
+      
+          <dt>Número de tarjeta:</dt>
+          <dd id="cardDetailsNumber"></dd>
+
+          <dt>Fecha Expiración:</dt>
+          <dd id="cardDetailsExp"></dd>
+
+          <dt>cvv:</dt>
+          <dd id="cardDetailscvv"></dd>
+
+        </dl>
+        
         <button id = "backtoHome" class="btn"> Cerrar</button>
       </section>
 
