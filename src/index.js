@@ -1,58 +1,53 @@
-//Esto es lo que importa el js donde hago el método que valida la tc
 import validator from './validator.js';
 
-//Función que tiene todos los listeners de los botones
+//Listener buttons
  const addButtonsListeners = () => {
-     //Listener de boton agregar nueva tarjeta
     const firstButtonClick = document.getElementById("newCardButton");
     firstButtonClick.addEventListener("click",formToComplete);
-     //Listener de boton guardar
+  
     const saveButtonClick = document.getElementById("saveInformation");
     saveButtonClick.addEventListener("click",backToHomepage);
-    //Listener de boton entrar 
+    
     const accessButtonClick = document.getElementById("accessToWallet");
     accessButtonClick.addEventListener("click",home);
-    //Listener para volver al home dps de ver detalles de la tarjeta
+
     const backToHome = document.getElementById("backtoHome");
     backToHome.addEventListener("click", home);  
-    //Listener botones para cerrar sesion
+    
     const closeSesion = document.getElementById("closeSesionB");
     closeSesion.addEventListener("click", backLogin); 
-    //Listener para volver a home desde el formulario de tc
+    
     const backToHomeTwo = document.getElementById("buttonTwoHome");
     backToHomeTwo.addEventListener("click",home);
  }
 
- //Funcion que va de home a login
+ //Home to login
  const backLogin = () =>{
     document.getElementById("login").style.display = "initial";
     document.getElementById("home").style.display = "none";
  }
 
- //Función que va desde login a home
+ //Login to home + welcome 
  const home = () =>{
      document.getElementById("login").style.display = "none";
-     document.getElementById("home").style.display = "initial";
+     document.getElementById("home").style.display = "grid";
      document.getElementById("newCard").style.display = "none";
      document.getElementById("card").style.display = "none"
     let welcomeHello = document.getElementById("welcomeName");
     welcomeHello.innerHTML = ("Hola " + document.getElementById("user").value);
-
  }
- //Función que me muestra formulario para numeros de tarjetas
+
+ // Form for TC 
  const formToComplete = () =>{
     document.getElementById("home").style.display = "none";
-    document.getElementById("newCard").style.display = "initial";
+    document.getElementById("newCard").style.display = "grid";
  }
 
-//Función que se devuelve al homepage y crea un objeto con los datos y procesa la funcion valid card
-//LLamo a las funciones savetheinformation y showWallet
+//Form with tc data already created
  const backToHomepage = () =>{
-     //Valor de cc
     let creditCardNumber = document.getElementById("ccNumber").value;
     if (validator.isValid(creditCardNumber) == true ){ 
         alert("Datos ingresados correctamente");
-         // Crear objeto que contiene como propiedad los input
         const walletAcces = {
             alias: document.getElementById("aliasName").value,
             name: document.getElementById("ccName").value,
@@ -65,19 +60,17 @@ import validator from './validator.js';
         document.getElementById("newCard").style.display="none";
         document.getElementById("home").style.display="initial";
     }else {
-        alert ("Por favor ingrese un número de tarjeta válido");
-        
+        alert ("Por favor ingrese un número de tarjeta válido");     
     } 
  }
-
- //Funcion que me muestra los detalles de una tarjeta
+ //Show card details
  const cardDetails = () => {
     document.getElementById("home").style.display = "none";
     let cardElements = document.getElementById("card");
     cardElements.style.display = "initial"; 
  }
 
- //Función que guarda el objeto en el local storage
+ // Save de object (wallet) in local storage 
 const saveTheinformation = (walletAcces) => {
     let walletArray = [];
     if (localStorage.getItem("wallet")== null){
@@ -90,7 +83,7 @@ const saveTheinformation = (walletAcces) => {
         }
 }
 
-//Función que toma el arreglo del l.s y lo muestra en home (Acá llamo a la funcion maskify!)
+// Funtion that take the array from local storage and show in home (Here is maskify method)
 const showWallet = () =>{
     let getWallet = localStorage.getItem("wallet");
     getWallet = JSON.parse(getWallet);
@@ -104,30 +97,19 @@ const showWallet = () =>{
         cardLi.classList.add("cardSummary"); 
         let two = document.createTextNode(getWallet[i].alias+ ": " + validator.maskify(getWallet[i].number));
         cardLi.appendChild(two);
-        cardsUl.appendChild(cardLi); // donde esta el ul le agrego el
-        //Funcion que rellena en la otra seccion los detalles, aprovechando la iteracion
+        cardsUl.appendChild(cardLi); 
+        //Funtion that  fill others details
         const fillCardDetails = () =>{
-            document.getElementById("cardDetailsAlias").innerHTML= getWallet[i].alias;
-            document.getElementById("cardDetailsName").innerHTML= getWallet[i].name;
-            document.getElementById("cardDetailsNumber").innerHTML= getWallet[i].number;
-            document.getElementById("cardDetailsExp").innerHTML= getWallet[i].exp;
-            document.getElementById("cardDetailscvv").innerHTML= getWallet[i].cvv;
+            document.getElementById("cardDetailsAlias").textContent = getWallet[i].alias;
+            document.getElementById("cardDetailsName").textContent =  getWallet[i].name;
+            document.getElementById("cardDetailsNumber").textContent = getWallet[i].number;
+            document.getElementById("cardDetailsExp").textContent = getWallet[i].exp;
+            document.getElementById("cardDetailscvv").textContent = getWallet[i].cvv;
             cardDetails();
         };
-
         cardLi.addEventListener("click", fillCardDetails);
     }
-
-    
-
 }
- 
- 
-
-
-
-
-
 //Codigo que se llama siempre:
 addButtonsListeners();
 showWallet();

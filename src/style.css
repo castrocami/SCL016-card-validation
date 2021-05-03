@@ -1,7 +1,24 @@
-body{
-    margin: 100px;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    background-size: contain;
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 5%;
+    border: 5px solid black
+}
+main{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    border: 4px solid blue;
+    
+}
 .logo {
     display: block;
     margin: auto;
@@ -10,51 +27,15 @@ body{
     margin-bottom: 100px;
 }
 
-/* Todas las letras de encabezado*/
-.heading {
+/* Headings*/
+#welcomeName,#heading-home, #heading-newCard,#heading-cardDetails {
     color: #FF5D5B;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-style: normal;
-    font-weight: bold;
     font-size: 85px;
-    line-height: 44px;
     text-align:center;
-
     
 }
-/* Usuario input*/
-.userInput {
-    background: #EFD5A3;
-    border-radius: 10px;
-    border:0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 20px;
-    font-size: 40px;
-    font-family: sans-serif;
-    width: 100%;
-    height: 100px;
-    left: 50px;
-    top: 176px;
-
-}
-
-/* Contraseña input*/
-.pwdInput {
-    background: #CEEFA3;
-    border-radius: 10px;
-    border:0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 100px;
-    font-size: 40px;
-    font-family: sans-serif;
-    width: 100%;
-    height: 100px;
-    left: 50px;
-    top: 176px;
-}
-
-/* Todos los botones*/
-.btn {
+/* Buttons */
+#accessToWallet,#newCardButton, #closeSesionB, #saveInformation, #backtoHome{
     background-color: #FF5D5B;
     border-radius: 25px;
     border:0;
@@ -62,124 +43,140 @@ body{
     margin-top: 100px;
     width: 500px;
     height: 100px;
-    left: 99px;
-    top: 536px;
     display:block;
     margin-left: auto;
     margin-right: auto;
-
-    
-    font-style: normal;
-    font-weight: normal;
     font-size: 40px;
-    font-family: sans-serif;
-    line-height: 25px;
-    text-align: center;
     color:#52504F;
 }
-   
-/* Cuadro donde se completa datos de tc*/
-#newCard input {
+/* Login */
+#user {
     background: #EFD5A3;
     border-radius: 10px;
     border:0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 20px;
     font-size: 40px;
-    font-family: sans-serif;
     width: 100%;
     height: 100px;
-    left: 50px;
-    top: 176px;
 }
+#password {
+    background: #CEEFA3;
+    border-radius: 10px;
+    border:0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 100px;
+    font-size: 40px;
+    width: 100%;
+    height: 100px;
+}
+/* Home */
 
-/* Cuadros con resumen de tc en el home */
+#home{
+    display: grid;
+    grid-template-rows: 10% 10% 10% 60% 10%;
+    height: 70vh;
+    border: 4px solid red;
+    padding: 2%;
+    
+}
+#welcomeName{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-self: center;
+}
+#newCardButton{
+    background-color: #CEEFA3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: 0px;
+}
+#heading-home{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-self: center;
+}
+#cardsContainer{
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+#closeSesionB{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    margin-top: 0px;
+}
+/*New Card */
 
-.cardSummary {
-
+#newCard{
+    display: grid;
+    grid-template-rows: 10% 60% 10% 20%;
+    border: 4px solid red;
+    height: 70vh;
+}
+#heading-newCard{
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#formContainer{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#formContainer input{
     background: #EFD5A3;
     border-radius: 10px;
     border:0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 20px;
+    font-size: 40px;
     width: 100%;
     height: 100px;
-    left: 50px;
-    top: 176px;
+}
+#saveInformation{
+    grid-row-start: 3;
+    grid-row-end: 4;
+     margin-top: 0px;
+}
+#buttonTwoHome{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    width: 120px;
+    height: 110px;
+    align-self: flex-end;
+    margin-left: 80%;
+}
+/* Sumary Card */
+.cardSummary {
+    background: #EFD5A3;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
     list-style: none;
-
-    font-style: normal;
-    font-weight: normal;
     font-size: 33px;
-    font-family: sans-serif;
     text-align: center;
-    vertical-align: middle;
     line-height: 90px;  
     color:#52504F;
 }
-
-
-/* Informacion de detalles de tc */
+#card{
+    height: 70vh;
+    border: 4px solid red;
+    padding: 2%;
+}
+/* Details Card */
 .cardInfo{
-    width: 100%;
-    height: 500px;
-    left: 11px;
-    top: 270px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-
     background: #CEEFA3;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-
-    font-family: sans-serif;
-    color: #52504F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5%;
 }
-
-/* Boton cerrar ses */
-.closeSes {
-
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 19px;
-    text-align: center;
-    text-decoration-line: underline;
-    color: #FF5D5B;
-
-    background-color: transparent;
-    border:none;
-    position: absolute;
-    bottom: 50px;
-
-}
-
-/* Boton de casa */ 
-.houseHome {
-    width: 120px;
-    height: 110px;
-    position: absolute;
-    margin-right: 0px;
-    bottom: 50px;
-    right: 50px;
-}
-
 /* Estilo de los detalles de la tc */ 
 dt {
-    
-    font-family: 'Open Sans Condensed', sans-serif;
     margin-inline-start: 50px;
     font-size: 36px;
 }
-
-
 dd {
     margin-bottom: 0.1em;
     display: block;
-    margin-inline-start: 258px;
+    margin-inline-start: 10%;
     font-weight: bold;
-    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 36px;
 }
-
